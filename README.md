@@ -1,8 +1,30 @@
-# L7-Data-Exploration
- Data Exploration &amp; Preparation Programme : L7 Dip. in Data Analytics
+# L7 Data Exploration & Preparation: Spam Filtering Analysis
 
-In the digital age, the constant deluge of unsolicited and often malicious electronic messages—known universally as "Spam"—has evolved into a major issue, impacting everything from productivity to cybersecurity. Spam filters are no longer a luxury; they have become a fundamental necessity across all aspects of life, silently guarding our inboxes.
+## Project Overview
+This project explores the "Spambase" dataset to identify key characteristics that distinguish spam emails from non-spam (ham). The analysis includes data cleaning (handling missing values and non-numeric artifacts), Exploratory Data Analysis (EDA), and Dimensionality Reduction using Principal Component Analysis (PCA).
 
-This report is a deep dive into this persistent problem, utilizing a real-life dataset: the SPAM E-mail Database. The data set attached is a real-life example of emails that have been sent to a company and have been labelled as True (is spam) and False (not spam).
+### Dataset Attributes:
+- **Word Frequency:** 48 attributes measuring the percentage of specific words.
+- **Character Frequency:** 6 attributes measuring the percentage of specific characters (e.g., `!`, `$`).
+- **Capital Run Lengths:** 3 attributes measuring sequences of capital letters.
+- **Target:** `is_spam` (Boolean).
 
-Our objective is to become the "data detective," investigating this corpus to understand the subtle linguistic and structural cues that give a spam email away. This journey begins with Exploratory Data Analysis (EDA) to understand the data's structure, clean and prepare the dataset for modeling, and uncover critical features associated with spam. Following this, we employ Principal Component Analysis (PCA), a powerful technique for dimensionality reduction, to distill the most significant predictive information into a compact feature set, preparing the data for a lean and effective classification model.
+---
+
+## 1. Exploratory Data Analysis (EDA)
+During the exploration phase, we identified that spam emails significantly differ from regular emails in their use of urgency symbols and financial keywords.
+
+
+
+### Key Findings:
+* **Urgency Indicators:** Spam emails show a much higher frequency of the exclamation mark (`!`) and the dollar sign (`$`).
+* **Capitalization:** Total capital run lengths are significantly higher in spam, often used to grab the recipient's attention.
+
+
+## 2. Principal Component Analysis (PCA)
+To address the **Curse of Dimensionality** (57 features), PCA was applied to reduce the feature space while retaining **99.5% of the variance**.
+
+
+
+* **Dimensionality Reduction:** We reduced the dataset from 57 features to a smaller set of principal components without significant information loss.
+* **Separation:** The PCA scatter plot reveals clear clustering, suggesting that even in a reduced space, spam and non-spam messages remain distinguishable.
